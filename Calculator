@@ -1,0 +1,28 @@
+# Skolas ēdnīcas lieki izmestā ēdiena un kaloriju aprēķināšanas kalkulators
+
+def kaloriju_kalkulators():
+    print("Sveicināti skolas ēdnīcas kaloriju kalkulatorā!")
+
+    try:
+        porciju_skaits = int(input("Ievadiet izmesto porciju skaitu: "))
+        kalorijas_porcija = float(input("Ievadiet kaloriju daudzumu vienā porcijā (kcal): "))
+
+        vai_zinat_svaru = input("Vai zināt vienas porcijas svaru (jā/nē)? ").strip().lower()
+
+        svars_porcija = None
+        if vai_zinat_svaru == "jā":
+            svars_porcija = float(input("Ievadiet vienas porcijas svaru (gramos): "))
+
+        kopā_kalorijas = porciju_skaits * kalorijas_porcija
+        kopā_svars = porciju_skaits * svars_porcija if svars_porcija is not None else None
+
+        print("\nAprēķinu rezultāti:")
+        print(f"Izmestās kalorijas kopā: {kopā_kalorijas:.2f} kcal")
+        if kopā_svars is not None:
+            print(f"Izmestā ēdiena kopējais svars: {kopā_svars:.2f} grami")
+
+    except ValueError:
+        print("Lūdzu, ievadiet derīgus skaitliskos datus.")
+
+if __name__ == "__main__":
+    kaloriju_kalkulators()
